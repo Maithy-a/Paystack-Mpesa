@@ -1,0 +1,10 @@
+{
+    "transaction_id": 25,
+    "account_id": 4,
+    "status": "success",
+    "reference": "805781457",
+    "bank": "TEST BANK",
+    "amount": 2000,
+    "transaction_date": "2025-01-11 17:54:04",
+    "description": "Paystack transaction for reference 805781457"
+}

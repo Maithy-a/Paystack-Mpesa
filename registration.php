@@ -76,7 +76,7 @@
     $conn->close();
     ?>
 
-<body class="d-flex flex-column" data-bs-theme="dark">
+<body class="d-flex flex-column" data-bs-theme="light">
     <div class="container container-tight py-4">
         <div class="card shadow-sm p-4 rounded-3">
             <form method="post" action="" autocomplete="off">
@@ -134,7 +134,7 @@
 
                 <div class="mb-3">
                     <label class="form-check">
-                        <input type="checkbox" class="form-check-input" />
+                        <input type="checkbox" class="form-check-input" required/>
                         <span class="form-check-label">Agree to the <a href="./terms-of-service.html"
                                 tabindex="-1">terms and policy</a>.</span>
                     </label>

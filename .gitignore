@@ -1,0 +1,11 @@
+
+.env
+/vendor/
+# Ignore IDE configuration files
+/.idea/
+/.vscode/
+/*.swp
+
+
+
+

@@ -6,7 +6,7 @@
 
 </html>
 
-<body class="d-flex flex-column" data-bs-theme="dark">
+<body class="d-flex flex-column" data-bs-theme="light">
   <div class="page page-center">
     <div class="container container-tight py-4">
       <form class="card card-md" action="/forgot-password" method="POST" autocomplete="off" novalidate>

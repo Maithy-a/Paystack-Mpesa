@@ -49,24 +49,13 @@
                   <small class="text-muted">2 min ago</small>
                 </div>
               </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span>Server updated successfully</span>
-                  <small class="text-muted">10 min ago</small>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span>Scheduled maintenance at 12:00 AM</span>
-                  <small class="text-muted">1 hour ago</small>
-                </div>
-              </a>
             </div>
             <div class="card-footer text-center">
               <a href="#" class="text-muted small">View all notifications</a>
             </div>
           </div>
         </div>
+        
       </div>
 
       <!-- User Profile -->

@@ -1,20 +1,6 @@
 <?php
-session_start();
-include("includes/head.php");
-include 'configs.php';
-include 'includes/db.php';
+include("includes/auth.php");
 include 'includes/quote.php';
-
-// Check authentication
-if (!isset($_SESSION['customer_id'])) {
-    header("Location: index.php");
-    exit();
-}
-
-$success_message = isset($_SESSION['success_message']) ? $_SESSION['success_message'] : "";
-unset($_SESSION['success_message']);
-
-$customer_id = $_SESSION['customer_id'];
 
 // Fetch wallet balance and email
 $query = "SELECT a.balance, c.email FROM Account a 
@@ -31,6 +17,7 @@ $stmt->fetch();
 $stmt->close();
 
 $_SESSION['wallet_balance'] = $wallet_balance;
+$_SESSION['email'] = $email;
 $currency = "KES";
 $amount = 2000;
 ?>
@@ -41,12 +28,15 @@ $amount = 2000;
 <body data-bs-theme="light">
     <?php include 'includes/sidebar.php'; ?>
     <?php include 'includes/nav.php'; ?>
+    
     <div class="page-wrapper">
         <div class="page-header d-print-none">
             <div class="container-xl">
                 <div class="row g-2 align-items-center">
                     <div class="col">
-                        <div class="page-pretitle">Dashboard</div>
+                        <div class="title text-muted">
+                            <h2>Payment page</h2>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -124,7 +114,6 @@ $amount = 2000;
                                         <span id="currency">KES</span>
                                         <span>
                                             <?php echo htmlspecialchars(number_format($_SESSION['wallet_balance'], 2), ENT_QUOTES, 'UTF-8'); ?>
-
                                         </span>
                                     </div>
                                 </div>
@@ -208,26 +197,6 @@ $amount = 2000;
                 }
             </script>
             <script src="https://js.paystack.co/v1/inline.js"></script>
-
-            <!-- Logout Modal -->
-            <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to log out?
-                        </div>
-                        <div class="modal-footer">
-                            <a href="logout.php" class="btn btn-primary">Yes, Log Out</a>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <?php include 'includes/footer.php'; ?>
         </div>

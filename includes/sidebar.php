@@ -9,16 +9,11 @@
 
     <!-- Brand -->
     <figure class="text-center">
-      <svg role="img" width="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <title>Analogue</title>
-        <path
-          d="M5.468 12.804a5.145 5.145 0 10-.644 10.27 5.145 5.145 0 00.644-10.27zm17.841 2.562L16.45 3.484a5.146 5.146 0 00-8.912 5.15l6.86 11.878a5.148 5.148 0 007.031 1.885 5.146 5.146 0 001.881-7.031z" />
-      </svg>
-      <div class="blockquote">
+      <div class="blockquote text-center">
         <h2>CodeSafiCreatives</h2>
       </div>
       <figcaption class="blockquote-footer">
-        <cite title="Source Title">Let's craft your web persona</cite>
+        <cite title="Source Title">Let's craft your web persona. </cite>
       </figcaption>
     </figure>
 
@@ -50,27 +45,35 @@
     <div class="collapse navbar-collapse" id="sidebar-menu">
       <ul class="navbar-nav pt-lg-3">
         <!-- Dashboard -->
-        <li class="nav-item">
-          <a class="nav-link" href="#!">
-            <span class="nav-link-title">Overview</span>
+        <li class="nav-item <?php echo ($page == 'home') ? 'active' : ''; ?>">
+          <a class="nav-link" href="home.php">
+            <span class="nav-link-title">Payment page</span>
           </a>
         </li>
 
         <!-- Pages -->
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown <?php echo ($page == 'financial_tools') ? 'active' : ''; ?>">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false">
             <span class="nav-link-title">Financial Tools</span>
           </a>
           <div class="dropdown-menu show">
-            <a class="dropdown-item" href="#!">Transactions</a>
+            <a class="dropdown-item <?php echo ($page == 'transactions') ? 'active' : ''; ?>"
+              href="transactions.php">Transactions</a>
             <a class="dropdown-item" href="#!">Notifications</a>
-            <a class="dropdown-item" href="#!">Analitics</a>
+            <a class="dropdown-item" href="#!">Receipts</a>
+            <a class="dropdown-item" href="#!">Invoices</a>
             <a class="dropdown-item" href="#!">Report</a>
           </div>
         </li>
 
+        <li class="nav-item <?php echo ($page == 'settings') ? 'active' : ''; ?>">
+          <a class="nav-link" href="home.php">
+            <span class="nav-link-title">Settings</span>
+          </a>
+        </li>
+
         <!-- More -->
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown <?php echo ($page == 'more') ? 'active' : ''; ?>">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false">
             <span class="nav-link-title">More</span>
           </a>
@@ -80,7 +83,9 @@
             <a href="#!" class="dropdown-item">GitHub</a>
           </div>
         </li>
+
       </ul>
     </div>
+    
   </div>
 </aside>

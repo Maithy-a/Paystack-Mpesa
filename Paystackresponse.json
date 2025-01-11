@@ -1,0 +1,109 @@
+{
+    "status": true,
+    "message": "Verification successful",
+    "data": {
+        "id": 4574836205,
+        "domain": "test",
+        "status": "success",
+        "reference": "805781457",
+        "receipt_number": null,
+        "amount": 200000,
+        "message": "test-3ds",
+        "gateway_response": "[Test] Approved",
+        "paid_at": "2025-01-11T17:54:14.000Z",
+        "created_at": "2025-01-11T17:54:04.000Z",
+        "channel": "card",
+        "currency": "KES",
+        "ip_address": "41.90.185.216",
+        "metadata": {
+            "referrer": "http:\/\/localhost:8080\/home.php"
+        },
+        "log": {
+            "start_time": 1736618045,
+            "time_spent": 11,
+            "attempts": 1,
+            "authentication": "3DS",
+            "errors": 0,
+            "success": true,
+            "mobile": false,
+            "input": [],
+            "history": [
+                {
+                    "type": "action",
+                    "message": "Set payment method to: card",
+                    "time": 2
+                },
+                {
+                    "type": "action",
+                    "message": "Attempted to pay with card",
+                    "time": 6
+                },
+                {
+                    "type": "auth",
+                    "message": "Authentication Required: 3DS",
+                    "time": 7
+                },
+                {
+                    "type": "action",
+                    "message": "Third-party authentication window opened",
+                    "time": 8
+                },
+                {
+                    "type": "success",
+                    "message": "Successfully paid with card",
+                    "time": 10
+                },
+                {
+                    "type": "action",
+                    "message": "Third-party authentication window closed",
+                    "time": 11
+                }
+            ]
+        },
+        "fees": 5800,
+        "fees_split": null,
+        "authorization": {
+            "authorization_code": "AUTH_nqep37wlfx",
+            "bin": "408408",
+            "last4": "0409",
+            "exp_month": "01",
+            "exp_year": "2030",
+            "channel": "card",
+            "card_type": "visa ",
+            "bank": "TEST BANK",
+            "country_code": "KE",
+            "brand": "visa",
+            "reusable": true,
+            "signature": "SIG_PPy7aDVqIMjzk5AxMgVA",
+            "account_name": null,
+            "receiver_bank_account_number": null,
+            "receiver_bank": null
+        },
+        "customer": {
+            "id": 225492010,
+            "first_name": "Bonface",
+            "last_name": "Maithya",
+            "email": "bonn.dev254@gmail.com",
+            "customer_code": "CUS_fsemttwvfyv93u9",
+            "phone": "0110007950",
+            "metadata": {
+                "calling_code": "+254"
+            },
+            "risk_action": "default",
+            "international_format_phone": null
+        },
+        "plan": null,
+        "split": [],
+        "order_id": null,
+        "paidAt": "2025-01-11T17:54:14.000Z",
+        "createdAt": "2025-01-11T17:54:04.000Z",
+        "requested_amount": 200000,
+        "pos_transaction_data": null,
+        "source": null,
+        "fees_breakdown": null,
+        "connect": null,
+        "transaction_date": "2025-01-11T17:54:04.000Z",
+        "plan_object": [],
+        "subaccount": []
+    }
+}

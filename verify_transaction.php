@@ -1,8 +1,5 @@
 <?php
-session_start();
-include 'configs.php';
-include 'includes/head.php';
-include 'includes/db.php'; // Include the database connection file
+include("includes/auth.php");
 
 if (isset($_GET['reference'])) {
     $referenceId = $_GET['reference'];
@@ -35,18 +32,19 @@ if (isset($_GET['reference'])) {
             header("Location: home.php");
             exit();
         } else {
-            $data = json_decode($response);
+            $data = json_decode($response, true);
 
-            if ($data->status) {
+            // Save the full Paystack response to Paystackresponse.json
+            file_put_contents('Paystackresponse.json', json_encode($data, JSON_PRETTY_PRINT));
+
+            if ($data['status']) {
                 // Extract relevant data
-                $status = $data->data->status ?? '';
-                $reference = $data->data->reference ?? '';
-                $amount = $data->data->amount / 100; // Convert to decimal
-                $bank = $data->data->authorization->bank ?? '';
-                $transaction_date = $data->data->transaction_date ?? '';
-                $transaction_date = convertToMySQLDateTime($transaction_date);
-
-                $transaction_type = 'Deposit'; // Default transaction type
+                $status = $data['data']['status'] ?? '';
+                $reference = $data['data']['reference'] ?? '';
+                $amount = $data['data']['amount'] / 100; // Convert to decimal
+                $bank = $data['data']['authorization']['bank'] ?? 'N/A';
+                $transaction_date = convertToMySQLDateTime($data['data']['transaction_date'] ?? '');
+                $transaction_type = 'Deposit';
                 $description = "Paystack transaction for reference $reference";
 
                 // Retrieve the account_id from the account table
@@ -87,25 +85,42 @@ if (isset($_GET['reference'])) {
                     // Update wallet balance
                     $updateStmt = $conn->prepare("UPDATE account SET balance = balance + ? WHERE account_id = ?");
                     $updateStmt->bind_param("di", $amount, $account_id);
-                    $updateStmt->execute();
-                    $updateStmt->close();
+                    if ($updateStmt->execute()) {
+                        // Prepare success data to save in success.transaction.json
+                        $successData = [
+                            'transaction_id' => $stmt->insert_id,
+                            'account_id' => $account_id,
+                            'status' => $status,
+                            'reference' => $reference,
+                            'bank' => $bank,
+                            'amount' => $amount,
+                            'transaction_date' => $transaction_date,
+                            'description' => $description,
+                        ];
 
-                    // Set success message
-                    $_SESSION['success_message'] = "Balance successfully updated!";
+                        // Save success data to success.transaction.json
+                        file_put_contents('success.transaction.json', json_encode($successData, JSON_PRETTY_PRINT));
+
+                        // Set success message
+                        $_SESSION['success_message'] = "Balance successfully updated!";
+                    } else {
+                        error_log("Balance Update Error: " . $updateStmt->error);
+                    }
+                    $updateStmt->close();
                 } else {
-                    $_SESSION['error_message'] = "Error saving transaction: " . $stmt->error;
+                    error_log("Transaction Insert Error: " . $stmt->error);
+                    $_SESSION['error_message'] = "Error saving transaction.";
                 }
 
                 $stmt->close();
                 header("Location: home.php");
                 exit();
             } else {
-                $_SESSION['error_message'] = "Transaction failed: " . $data->message;
+                $_SESSION['error_message'] = "Transaction failed: " . $data['message'];
+                file_put_contents('Paystackresponse.json', json_encode($data, JSON_PRETTY_PRINT)); // Save error response
                 header("Location: home.php");
-
                 exit();
             }
-
         }
     }
 } else {
