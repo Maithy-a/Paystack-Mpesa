@@ -3,7 +3,7 @@ This repository features a system for account creation and deposits via Paystack
 To set up your Paystack payment integration system, follow these steps:
 
 1. **Clone the Repository**: Start by cloning the repository to your local machine using the command:
-   ```bash
+    ```bash
    git clone https://github.com/Maithy-a/Paystack-Mpesa.git
    ```
 
