@@ -35,7 +35,7 @@ if (isset($_GET['reference'])) {
             $data = json_decode($response, true);
 
             // Save the full Paystack response to Paystackresponse.json
-            file_put_contents('Paystackresponse.json', json_encode($data, JSON_PRETTY_PRINT));
+            // file_put_contents('Paystackresponse.json', json_encode($data, JSON_PRETTY_PRINT));
 
             if ($data['status']) {
                 // Extract relevant data
@@ -117,7 +117,7 @@ if (isset($_GET['reference'])) {
                 exit();
             } else {
                 $_SESSION['error_message'] = "Transaction failed: " . $data['message'];
-                file_put_contents('Paystackresponse.json', json_encode($data, JSON_PRETTY_PRINT)); // Save error response
+                // file_put_contents('Paystackresponse.json', json_encode($data, JSON_PRETTY_PRINT)); // Save error response
                 header("Location: home.php");
                 exit();
             }
