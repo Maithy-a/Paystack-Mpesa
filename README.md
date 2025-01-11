@@ -4,7 +4,7 @@ To set up your Paystack payment integration system, follow these steps:
 
 1. **Clone the Repository**: Start by cloning the repository to your local machine using the command:
    ```bash
-   git clone [<repository-url>](https://github.com/Maithy-a/Paystack-Mpesa.git)
+   git clone https://github.com/Maithy-a/Paystack-Mpesa.git
    ```
 
 2. **Configure API Keys**: Open the `config.php` file in your project directory. Here, you will need to set your Paystack secret key and public key. These keys can be obtained after creating an account with Paystack. Add the following lines to `config.php`:
