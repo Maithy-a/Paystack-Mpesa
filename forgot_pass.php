@@ -1,10 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <?php include("includes/head.php"); ?>
 </head>
-
-</html>
 
 <body class="d-flex flex-column" data-bs-theme="light">
   <div class="page page-center">
@@ -46,3 +45,5 @@
     </div>
   </div>
 </body>
+
+</html>
