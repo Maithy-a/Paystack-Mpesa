@@ -28,20 +28,21 @@ $amount = 2000;
 <body data-bs-theme="light">
     <?php include 'includes/sidebar.php'; ?>
     <?php include 'includes/nav.php'; ?>
-    
+
     <div class="page-wrapper">
-        <div class="page-header d-print-none">
-            <div class="container-xl">
-                <div class="row g-2 align-items-center">
-                    <div class="col">
-                        <div class="title text-muted">
-                            <h2>Payment page</h2>
-                    </div>
+        <div class="page-body">
+            <div class="page-header d-print-none">
+                <div class="container-xl">
+                    <div class="row g-2 align-items-center">
+                        <div class="col">
+                            <div class="title text-muted">
+                                <h2>Payment page</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="page-body">
+
             <div class="container-xl">
                 <div class="quote mb-4">
                     <h3>Quote</h3>
@@ -140,7 +141,7 @@ $amount = 2000;
                         speed: 300,
                         autoclose: true,
                         autotimeout: 5000,
-                        position: 'right top',
+                        position: 'right bottom',
                     });
                 </script>
             <?php endif; ?>

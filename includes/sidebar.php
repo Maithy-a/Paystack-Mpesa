@@ -59,33 +59,26 @@
           <div class="dropdown-menu show">
             <a class="dropdown-item <?php echo ($page == 'transactions') ? 'active' : ''; ?>"
               href="transactions.php">Transactions</a>
-            <a class="dropdown-item" href="#!">Notifications</a>
-            <a class="dropdown-item" href="#!">Receipts</a>
-            <a class="dropdown-item" href="#!">Invoices</a>
-            <a class="dropdown-item" href="#!">Report</a>
+            <a class="dropdown-item disabled" href="#!">Notifications</a>
+            <a class="dropdown-item disabled" href="#!">Report</a>
           </div>
         </li>
 
-        <li class="nav-item <?php echo ($page == 'settings') ? 'active' : ''; ?>">
-          <a class="nav-link" href="home.php">
-            <span class="nav-link-title">Settings</span>
-          </a>
-        </li>
-
+        <div class="nav-divider"></div>
         <!-- More -->
         <li class="nav-item dropdown <?php echo ($page == 'more') ? 'active' : ''; ?>">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false">
-            <span class="nav-link-title">More</span>
+            <span class="nav-link-title">Setting & Support</span>
           </a>
           <div class="dropdown-menu show ">
-            <a href="#!" class="dropdown-item">Terms of Service</a>
-            <a href="#!" class="dropdown-item">FAQ</a>
-            <a href="#!" class="dropdown-item">GitHub</a>
+            <a href="#!" class="dropdown-item">Setting and Privacy</a>
+            <a href="#!" class="dropdown-item">Help Center</a>
+            <a href="https://github.com/Maithy-a" target="_blank" class="dropdown-item">GitHub</a>
           </div>
         </li>
 
       </ul>
     </div>
-    
+
   </div>
 </aside>
