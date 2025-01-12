@@ -114,20 +114,19 @@ include("includes/auth.php");
                                                     <span class="badge bg-success me-1"></span>
                                                     <?= htmlspecialchars($transaction['status']); ?>
                                                 </td>
-                                                <td class="text-secondary"><?= htmlspecialchars($transaction['reference']); ?></td>
+                                                <td class="text-secondary"><?= htmlspecialchars($transaction['reference']); ?>
+                                                </td>
                                                 <td><?= htmlspecialchars($transaction['bank']); ?></td>
                                                 <td>KES <?= number_format($transaction['amount'], 2); ?></td>
                                                 <td><?= htmlspecialchars($transaction['transaction_date']); ?></td>
                                                 <td><?= htmlspecialchars($transaction['description']); ?></td>
                                             </tr>
                                         <?php endforeach; ?>
-                                        
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="8" class="text-muted">No transactions found.</td>
                                         </tr>
                                     <?php endif; ?>
-
                                 </tbody>
                             </table>
                         </div>
@@ -170,29 +169,24 @@ include("includes/auth.php");
                         </ul>
                     </div>
                 </div>
-
                 <div class="mt-4">
                     <table class="table table-responsive card-table table-vcenter">
-                        <tr>
-                            <th>Total number of transaction</th>
-                            <th>Total Amount Deposited (KES)</th>
-                        </tr>
-                        <tr>
-                            <td class="text-info" ><?= $totalTransactions; ?></td>
-                            <td class="text-info"> <?= number_format($totalAmount, 2); ?></td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>Total number of transaction</th>
+                                <th>Total Amount Deposited (KES)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-info"><?= $totalTransactions; ?></td>
+                                <td class="text-info"> <?= number_format($totalAmount, 2); ?></td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
-        <script>
-            $(document).ready(function () {
-                $('#myTable').DataTable({
-                    responsive: true
-                });
-            });
-        </script>
         <?php include 'includes/footer.php'; ?>
     </div>
 </body>
