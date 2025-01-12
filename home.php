@@ -141,7 +141,7 @@ $amount = 2000;
                         speed: 300,
                         autoclose: true,
                         autotimeout: 5000,
-                        position: 'right bottom',
+                        position: 'right top'
                     });
                 </script>
             <?php endif; ?>

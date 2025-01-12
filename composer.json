@@ -1,15 +1,20 @@
 {
-    "name": "maith/paystack-mpesa",
+    "name": "maithya/paystack-mpesa",
     "description": "Paystack-Mpesa is a PHP-based system that integrates Paystack payments with M-Pesa for user account creation and deposits. It features a modern tabular UI for a seamless user experience. The repository provides detailed steps to configure API keys, run the code on a local server, and set up Ngrok for testing callbacks. This solution is ideal for projects that require Paystack-M-Pesa integration for secure and efficient payment processing.",
     "type": "project",
-    "require": {
-        "vlucas/phpdotenv": "^5.5"
-    },
     "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Maithya\\PaystackMpesa\\": "src/"
+        }
+    },
     "authors": [
         {
             "name": "Maithya",
             "email": "bonn.dev254@gmail.com"
         }
-    ]
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
 }
